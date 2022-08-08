@@ -44,7 +44,7 @@ class DefaultChecker extends Command
             $client = new Client([
                 'headers' => [
                     'cookie' => file_get_contents(
-                        getcwd().'/cookies.txt'
+                        base_path('cookies.txt')
                     ),
                 ],
             ]);

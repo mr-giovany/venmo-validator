@@ -7,7 +7,8 @@
         "vendor"
     ],
     "files": [
-        "composer.json"
+        "composer.json",
+        "cookies.txt"
     ],
     "exclude-composer-files": false,
     "exclude-dev-files": false,

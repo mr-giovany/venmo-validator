@@ -48,6 +48,7 @@ class DefaultChecker extends Command
                 'headers' => [
                     'cookie' => $cookie,
                 ],
+                'verify' => false,
             ]);
 
             collect(
